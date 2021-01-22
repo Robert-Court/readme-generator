@@ -3,13 +3,14 @@ const fs = require('fs');
 const util = require('util');
 const { generateReadme } = require("./utils/generateReadme")
 
-const writeFileAsync = util.promisify(fs.writeFile);
+// Line below may not be necessary, as I am using 'writeFile', not 'writeFileAsync'. 
+  // const writeFileAsync = util.promisify(fs.writeFile);
 
 const askQuestions = () => {
   return inquirer.prompt([
     {
       type: 'input',
-      name: 'Project title',
+      name: 'ProjectTitle',
       message: 'What is the title of your project/application?',
     },
     {
@@ -41,8 +42,6 @@ const askQuestions = () => {
 };
 
 
-
-
 // Bonus using async/await and try/catch
 const init = async () => {
   console.log('\nWelcome to "Readme File Generator"\n\n   IMPORTANT: Please note that your responses to the prompts below will form the content of your readme file.');
@@ -50,7 +49,7 @@ const init = async () => {
 
     const generatedReadme = generateReadme(answers);
 
-    fs.writeFile('readme.md', generatedReadme.trim(), (error) => {
+    fs.writeFile(`${answers.projectTitle}.md`, generatedReadme.trim(), (error) => {
       console.log('Successfully wrote to readme file.');
   });
 }
