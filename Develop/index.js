@@ -1,10 +1,45 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
+const fs = require('fs');
+const util = require('util');
 
 
 // TODO: Create an array of questions for user input
-const questions = [];
 
+const questions = () => {
+  return inquirer.prompt([ 
+      {
+        type: 'input',
+        name: 'Project title',
+        message: 'What is the title of your project/application?',
+      },
+      {
+        type: 'input',
+        name: 'Description',
+        message: 'Please write a description for your application.',
+      },
+      {
+        type: 'input',
+        name: 'Installation',
+        message: 'Please outline the steps for installing the application.',
+      },
+      {
+        type: 'input',
+        name: 'Usage',
+        message: 'Please detail the necessary usage information for the potential user.',
+      },
+      {
+        type: 'input',
+        name: 'Contributing',
+        message: 'Please explain the process whereby users may be able to contribute to the project. (NB - It may also help to specify any aspects of the project where you would welcome user input/feedback.)',
+      },
+      {
+        type: 'input',
+        name: 'Tests',
+        message: 'Please enter any test instructions that you wish the user to know.',
+      },
+  ]);
+};
     // Project title 
         // NB - Project title becomes the title of the README
     
@@ -29,58 +64,10 @@ const questions = [];
             // username and link appear within the section entitled 'Questions'.
             // Questions sections contains instructions on how to reach user with additional questions.
 
-// TODO: Create a function to write README file
+// Function to write README file
 function writeToFile(fileName, data) {}
-
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
-
-
-const inquirer = require('inquirer');
-const fs = require('fs');
-const util = require('util');
-
 const writeFileAsync = util.promisify(fs.writeFile);
-
-const promptUser = () => {
-  return inquirer.prompt([
-    {
-      type: 'input',
-      name: 'name',
-      message: 'What is your name?',
-    },
-    {
-      type: 'input',
-      name: 'location',
-      message: 'Where are you from?',
-    },
-    {
-      type: 'input',
-      name: 'hobby',
-      message: 'What is your favorite hobby?',
-    },
-    {
-      type: 'input',
-      name: 'food',
-      message: 'What is your favorite food?',
-    },
-    {
-      type: 'input',
-      name: 'github',
-      message: 'Enter your GitHub Username',
-    },
-    {
-      type: 'input',
-      name: 'linkedin',
-      message: 'Enter your LinkedIn URL.',
-    },
-  ]);
-};
-
-const generateHTML = (answers) =>
+const generateReadmeFile = (answers) =>
 `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,20 +91,21 @@ const generateHTML = (answers) =>
 </body>
 </html>`;
 
-// Bonus using async/await and try/catch
-const init = async () => {
+// Function to initialize app
   console.log('hi');
   try {
-    const answers = await promptUser();
+    const answers = await questions();
 
-    const html = generateHTML(answers);
+    const readme = generateReadmeFile(answers);
 
-    await writeFileAsync('index.html', html);
+    await writeFileAsync('readme2.md', readme);
 
-    console.log('Successfully wrote to index.html');
+    console.log('Successfully wrote to readme2.me');
   } catch (err) {
     console.log(err);
-  }
 };
 
+function init() {}
+
+// Function call to initialize app
 init();
