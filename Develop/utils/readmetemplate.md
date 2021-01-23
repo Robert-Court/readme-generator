@@ -1,4 +1,4 @@
- ## ${answers.projectTitle}
+## ${answers.projectTitle}
     License badge
 
 ### Table of Contents

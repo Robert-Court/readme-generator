@@ -1,37 +1,46 @@
+const { renderLicenseSection } = require("./generateMarkdown")
+const { renderLicenseBadge } = require("./generateMarkdown")
+
 const generateReadme = (answers) => {
     // NB - Readme file structure is located within the template literal below
     return `
-        # ${answers.projectTitle}
-            License badge
+    ## ${answers.projectTitle}
+---
+## License: ${answers.licenseBadge}
 
-        ## Table of Contents
-            1.[Description] (#desc)
-            Installation link
-            Usage link
-            Contributing link
-            Tests link
-            Questions link
-            License link
+### Table of Contents
+1.[Description](#desc)
+2.[Installation](#install)
+3.[Usage link](#use)
+4.[Contributing](#contrib)
+5.[Tests](#test)
+6.[Questions](#quest)
+7.[License](#license)
 
-        <a name="desc"></a>
-        ## Description
+###<a name="desc">Description</a>
+${answers.description}
 
-        ## Installation
+###<a name="install">Installation</a>
+${answers.installation}
 
-        ## Usage
+###<a name="use">Usage</a>
+${answers.usage}
 
-        ## Contributing
+###<a name="contrib">Contributing</a>
+${answers.contributing}
 
-        ## Tests
+###<a name="test">Tests</a>
+${answers.tests}
 
-        ## Questions
-            ### Github username
-            ### Github profile link
+###<a name="quest">Questions</a>
+### Github username
+### Github profile link
 
-        ## License
-    `
+###<a name="license">License</a>
+${answer.license}`
+
+renderLicenseBadge();
+renderLicenseSection();
 }
 
-module.exports = {
-        generateReadme
-}
+module.exports = {generateReadme};

@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const util = require('util');
 const { generateReadme } = require("./utils/generateReadme")
+const { DateTime } = require("luxon");
 
 // Line below may not be necessary, as I am using 'writeFile', not 'writeFileAsync'. 
   // const writeFileAsync = util.promisify(fs.writeFile);
@@ -10,34 +11,48 @@ const askQuestions = () => {
   return inquirer.prompt([
     {
       type: 'input',
-      name: 'ProjectTitle',
+      name: 'projectTitle',
       message: 'What is the title of your project/application?',
     },
     {
       type: 'input',
-      name: 'Description',
-      message: 'Please write a description for your application.',
+      name: 'description',
+      message: 'Write a brief description for your application.',
+    },
+    {
+      type: 'checkbox',
+      name: 'licenseOption',
+      message: `Which type of license do you require?\nNB-For more on licenses, visit https://choosealicense.com` ,
+      choices: [
+        'No license - I am not sharing my work', 'GNU - I will share with some requirements', 'MIT - I will share',
+      ],
     },
     {
       type: 'input',
-      name: 'Installation',
+      name: 'installation',
       message: 'Please outline the steps for installing the application.',
     },
     {
       type: 'input',
-      name: 'Usage',
-      message: 'Please detail the necessary usage information for the potential user.',
+      name: 'usage',
+      message: 'Please detail the necessary usage information for the user.',
     },
     {
       type: 'input',
-      name: 'Contributing',
-      message: 'Please explain the process whereby users may be able to contribute to the project. (NB - It may also help to specify any aspects of the project where you would welcome user input/feedback.)',
+      name: 'contributing',
+      message: 'Please explain the process whereby users may be able to contribute to the project.',
     },
     {
       type: 'input',
-      name: 'Tests',
-      message: 'Please enter any test instructions that you wish the user to know.',
+      name: 'tests',
+      message: 'Please enter any information on tests that you wish the user to know.',
     },
+    {
+      type: 'input',
+      name: 'quest',
+      message: 'Where should users direct their questions?',
+    },
+    ,,
   ]);
 };
 
