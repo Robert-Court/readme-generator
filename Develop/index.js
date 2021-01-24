@@ -11,8 +11,18 @@ const askQuestions = () => {
   return inquirer.prompt([
     {
       type: 'input',
-      name: 'projectTitle',
-      message: 'What is the title of your project/application?',
+      name: 'userName',
+      message: 'What is your full name?',
+    },
+    {
+      type: 'input',
+      name: 'userEmail',
+      message: 'What is your email address?',
+    },
+    {
+      type: 'input',
+      name: 'year',
+      message: 'In what year will your project be published?',
     },
     {
       type: 'input',
@@ -20,11 +30,16 @@ const askQuestions = () => {
       message: 'Write a brief description for your application.',
     },
     {
-      type: 'checkbox',
+      type: 'input',
+      name: 'projectTitle',
+      message: 'What is the title of your project/application?',
+    },
+    {
+      type: 'list',
       name: 'licenseOption',
       message: `Which type of license do you require?\nNB-For more on licenses, visit https://choosealicense.com` ,
       choices: [
-        'No license - I am not sharing my work', 'GNU - I will share with some requirements', 'MIT - I will share',
+        'None', 'GNU', 'MIT',
       ],
     },
     {
@@ -49,24 +64,36 @@ const askQuestions = () => {
     },
     {
       type: 'input',
+      name: 'githubUserName',
+      message: 'Please enter your Github user name.',
+    },
+    {
+      type: 'input',
+      name: 'githubURL',
+      message: 'Please enter the URL to your Github user profile.',
+    },
+    {
+      type: 'input',
       name: 'quest',
       message: 'Where should users direct their questions?',
     },
-    ,,
   ]);
 };
-
-
 // Bonus using async/await and try/catch
 const init = async () => {
   console.log('\nWelcome to "Readme File Generator"\n\n   IMPORTANT: Please note that your responses to the prompts below will form the content of your readme file.');
-    const answers = await askQuestions();
+    try {
+      const answers = await askQuestions();
 
-    const generatedReadme = generateReadme(answers);
+      const generatedReadme = generateReadme(answers);
 
-    fs.writeFile(`${answers.projectTitle}.md`, generatedReadme.trim(), (error) => {
-      console.log('Successfully wrote to readme file.');
-  });
-}
+      fs.writeFile(`${answers.projectTitle}.md`, generatedReadme.trim(), (error) => {
+        console.log('Successfully wrote to readme file.');
+      })
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
 
 init ();
