@@ -1,3 +1,8 @@
+///const {badgeOptions, license} = require("./license")
+//badgeOptions();
+//license();
+
+
 const generateReadme = (answers) => {
     // NB - Readme file structure is located within the template literal below
     return `
@@ -30,11 +35,12 @@ ${answers.contributing}
 ${answers.tests}
 
 ###<a name="quest">Questions</a>
-#### Github username: ${answers.githubUserName}
-#### Github profile link: ${answers.githubURL}
+  * **Github username**: ${answers.githubUserName}
+  * **Email**: [${answers.userEmail}](${answers.userEmail})
+  * **Github profile link**: [${answers.githubURL}](${answers.githubURL})
 
 ###<a name="license">License</a>
-`
+${answers.licenseOption}`
 
 }
 
