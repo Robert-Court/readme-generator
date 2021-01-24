@@ -22,7 +22,7 @@ Installation of the application requires the latest version of Node.js and makes
 Initiating the index.js file will activate a series of prompts which the user will need to answer. Once completed, these responses will form the information within the README file.
 
 ###Intallation and usage demonstration:
-<iframe src="https://drive.google.com/file/d/1FPbpnlrUfxZ6AXpQh1jbVWbWmR_bG3X1/preview" width="640" height="480"></iframe>
+"https://drive.google.com/file/d/1FPbpnlrUfxZ6AXpQh1jbVWbWmR_bG3X1/preview"
 
 ###<a name="contrib">Contributing</a>
 Contributions may be made by cloning the repository and then creating a branch. Please email through any suggestions about additions or bug fixes.
