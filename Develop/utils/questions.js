@@ -18,7 +18,7 @@ const askQuestions = () => {
             message: 'In what year will your project be published?',
         },
         {
-            type: 'input',
+            type: 'editor',
             name: 'description',
             message: 'Write a brief description for your application.',
         },

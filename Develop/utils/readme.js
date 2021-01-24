@@ -8,7 +8,8 @@ const generateReadme = (answers) => {
     return `
     ## ${answers.projectTitle}
 ---
-## License: ${answers.licenseOption}
+### License: 
+${answers.licenseOption}
 
 ### Table of Contents
 1.[Description](#desc)
