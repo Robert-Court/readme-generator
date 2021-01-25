@@ -1,15 +1,11 @@
-///const {badgeOptions, license} = require("./license")
-//badgeOptions();
-//license();
-
+const {badgeOptions, license} = require("./license")
 
 const generateReadme = (answers) => {
     // NB - Readme file structure is located within the template literal below
     return `
     ## ${answers.projectTitle}
 ---
-### License: 
-${answers.licenseOption}
+${badgeOptions(answers)} 
 
 ### Table of Contents
 1.[Description](#desc)
@@ -41,7 +37,7 @@ ${answers.tests}
   * **Github profile link**: [${answers.githubURL}](${answers.githubURL})
 
 ### <a name="license">License</a>
-${answers.licenseOption}`
+${license(answers)}`
 
 }
 
