@@ -1,7 +1,6 @@
 ## README
 ---
-### License: 
-MIT
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
 ### Table of Contents
 1.[Description](#desc)
@@ -16,13 +15,10 @@ MIT
 The following application is a file generator that creates markdown README files.
 
 ### <a name="install">Installation</a>
-Installation of the application requires the latest version of Node.js and makes particular use of the Inquirer module.
+Installation of the application requires the latest version of Node.js and will particularly use the Inquirer module.
 
 ### <a name="use">Usage</a>
 Initiating the index.js file will activate a series of prompts which the user will need to answer. Once completed, these responses will form the information within the README file.
-
-### Intallation and usage demonstration:
-"https://drive.google.com/file/d/1w7sV4SB_M3UnsCtUeFhEHWvC77i__QgC/view"
 
 ### <a name="contrib">Contributing</a>
 Contributions may be made by cloning the repository and then creating a branch. Please email through any suggestions about additions or bug fixes.
@@ -36,4 +32,4 @@ Please follow standard practice for any testing.
   * **Github profile link**: [https://github.com/Robert-Court](https://github.com/Robert-Court)
 
 ### <a name="license">License</a>
-MIT
+Please click on the link for more details: [MIT](https://choosealicense.com/licenses/mit/)
