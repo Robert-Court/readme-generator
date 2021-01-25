@@ -23,7 +23,7 @@ function license (answers) {
   else if (answers.licenseOption == 'GNU') {
     return `Please click on the link for more details: [GNU](https://https://choosealicense.com/licenses/gpl-3.0/)`
   }
-  else if (answers.licenseOption == 'MIT - I will share') {
+  else if (answers.licenseOption == 'MIT') {
     return `Please click on the link for more details: [MIT](https://choosealicense.com/licenses/mit/)`
   };
 };
